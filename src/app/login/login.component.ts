@@ -27,28 +27,30 @@ export class LoginComponent {
   login() {
     this.submitted = true
     // Non-null assertion operator !
+    //asdf@gmail.com/asdf123
     const email: string =  this.loginForm.value.email!;
     const password: string =  this.loginForm.value.password!;
     this.authService.authenticate(email, password).subscribe({ 
       next: (data: any) => {
-          this.user = {
-            isAdmin: data.isAdmin,
-            isActive: data.isActive,
-            "_id": data["_id"],
-            firstName: data.firstName,
-            lastName: data.lastName,
-            email: data.email,
-            dob: data.dob,
-            gender: data.gender,
-            photoId: data.photoId,
-            createdDate: data.createdDate,
-            "_v": data["_v"],
-            token: data.token
-          }
-       }, error: err => {
+        this.user = {
+          isAdmin: data.isAdmin,
+          isActive: data.isActive,
+          "_id": data["_id"],
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          dob: data.dob,
+          gender: data.gender,
+          photoId: data.photoId,
+          createdDate: data.createdDate,
+          "_v": data["_v"],
+          token: data.token
+        }
+        console.log(this.user)
+      }, error: err => {
         this.errorResponse = true;
-         this.errorMessage = err.error.message;
-       }
+        this.errorMessage = err.error.message;
+      }
       })
   }
 
