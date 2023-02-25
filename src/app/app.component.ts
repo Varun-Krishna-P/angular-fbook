@@ -12,21 +12,30 @@ import { StorageService } from './services/storage.service';
 export class AppComponent implements OnInit {
   title = 'fbook';
   private currentUser = {};
-  loggedIn: boolean = false;
   logOutMessage =  ""
 
   constructor(private _storageService: StorageService, private _authService: AuthService, private router: Router){}
   ngOnInit() {
+    // this.currentUser = JSON.parse(this._storageService.getSessionCurrentUser() || "{}");
+    // if(this.currentUser){
+    //   this.loggedIn = true;
+    // }
+    this.authenticated;
+  }
+
+  public get authenticated(): boolean {
     this.currentUser = JSON.parse(this._storageService.getSessionCurrentUser() || "{}");
     if(this.currentUser){
-      this.loggedIn = true;
+      return true
+    }else{
+      return false
     }
-  }
+}
 
   logOut() {
     this._authService.signOut();
     this.logOutMessage = "Logged Out successfully!";
-    this.loggedIn = false;
+    // this.loggedIn = false;
     this.router.navigate(['']);
   }
 }
