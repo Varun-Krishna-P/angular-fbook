@@ -36,6 +36,6 @@ export class AppComponent implements OnInit {
     this._authService.signOut();
     this.logOutMessage = "Logged Out successfully!";
     // this.loggedIn = false;
-    this.router.navigate(['']);
+    this.router.navigate(['/login']);
   }
 }
