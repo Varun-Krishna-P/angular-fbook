@@ -12,7 +12,8 @@ import { httpInterceptorProviders } from "./interceptors/index";
 import { SettingsComponent } from './settings/settings.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { FbUserInfoComponent } from './shared/fb-user-info/fb-user-info.component';
-import { NetworkComponent } from './network/network.component'
+import { NetworkComponent } from './network/network.component';
+import { FriendsComponent } from './friends/friends.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NetworkComponent } from './network/network.component'
     SettingsComponent,
     ForgotPasswordComponent,
     FbUserInfoComponent,
-    NetworkComponent
+    NetworkComponent,
+    FriendsComponent
   ],
   imports: [
     BrowserModule,

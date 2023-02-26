@@ -67,4 +67,8 @@ export class UserService {
       status: "Request Pending"
     }, httpOptions)
   }
+
+  getUserById(userId: string): Observable<any>{
+    return this._http.get(APIURL + userId)
+  }
 }

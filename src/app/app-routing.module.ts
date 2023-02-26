@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { FriendsComponent } from './friends/friends.component';
 import { LoginComponent } from './login/login.component';
 import { NetworkComponent } from './network/network.component';
 import { PostsComponent } from './posts/posts.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'settings', component: SettingsComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'network', component: NetworkComponent},
+  {path: 'friends', component: FriendsComponent},
   {path: '', component: LoginComponent, pathMatch: 'full'}
 ];
 
