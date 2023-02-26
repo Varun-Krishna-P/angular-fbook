@@ -32,4 +32,27 @@ export class UserService {
   getUserPhoto(photoId: string): Observable<any> {
     return this._http.get(APIROOTURL + "files/" + photoId, {responseType: 'blob' as "json"})
   }
+
+  getFriends(){
+    return this._http.get(APIROOTURL + "friends")
+  }
+
+  createPost(detailObj: any): Observable<any>{
+    return this._http.post(APIROOTURL + 'posts/createpost', {
+      post: detailObj.post,
+      userId: detailObj.userId,
+      userName: detailObj.userName,
+      userPhotoId: detailObj.userPhotoId,
+      postImageId: "",
+      isActive: true,
+      isAdmin: false,
+      profession: 'Developer'
+    }, httpOptions)
+  }
+
+  getUserPost(userId: string): Observable<any>{
+    return this._http.post(APIROOTURL + "posts/findpostbyuserid", {
+      id: userId
+    }, httpOptions)
+  }
 }

@@ -1,3 +1,11 @@
 <div class="border border-dark">
-    <img [src]="imageBlobUrl" class="round-image" alt="userPhoto">
+    <div class="text-center border-bottom">
+        <img [src]="imageBlobUrl" class="round-image" alt="userPhoto">
+    </div>
+    <div class="text-center border-bottom-dark">
+        <span>{{this.friendsList.length}} connections</span>
+    </div>
+    <div class="text-center border-bottom-dark">
+        <span>{{posts.length}} Posts</span>
+    </div>
 </div>

@@ -9,11 +9,21 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class FbUserInfoComponent implements OnInit {
   imageBlobUrl: any = ""
+  friendsList: any = [];
+  posts: any = [];
   constructor(private _userService: UserService, private _storageService: StorageService) {}
 
   ngOnInit(): void {
-    this.userPhoto()
+    this.userPhoto();
+    this._userService.getFriends().subscribe(data => {
+      this.friendsList = data;
+    })
+    let currentUser = JSON.parse(this._storageService.getSessionCurrentUser() || '{}')
+    this._userService.getUserPost(currentUser["_id"]).subscribe(data => this.posts = data)
+    
   }
+
+
   userPhoto(): void {
     let currentUser = JSON.parse(this._storageService.getSessionCurrentUser() || '{}')
     if(currentUser && Object.keys(currentUser).length > 0){
@@ -31,7 +41,6 @@ export class FbUserInfoComponent implements OnInit {
     }, false);
   if (image) {
       reader.readAsDataURL(image);
-      console.log("hhhh")
     }
   }
 
