@@ -10,7 +10,8 @@ import {  HttpClientModule} from '@angular/common/http';
 import { PostsComponent } from './posts/posts.component';
 import { httpInterceptorProviders } from "./interceptors/index";
 import { SettingsComponent } from './settings/settings.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component'
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { FbUserInfoComponent } from './shared/fb-user-info/fb-user-info.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     RegisterComponent,
     PostsComponent,
     SettingsComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    FbUserInfoComponent
   ],
   imports: [
     BrowserModule,

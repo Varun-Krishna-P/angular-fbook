@@ -2,7 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const APIURL = "http://3.17.216.66:3000/users/";
+const APIROOTURL = "http://3.17.216.66:3000/";
+const APIURL = APIROOTURL + "users/";
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -25,5 +27,9 @@ export class UserService {
     return this._http.put(`${APIURL}${id}`, {
       user
     }, httpOptions)
+  }
+
+  getUserPhoto(photoId: string): Observable<any> {
+    return this._http.get(APIROOTURL + "files/" + photoId, {responseType: 'blob' as "json"})
   }
 }
