@@ -59,4 +59,12 @@ export class UserService {
       id: userId
     }, httpOptions)
   }
+
+  createFriendRequest(requestObj: any): Observable<any>{
+    return this._http.post(APIROOTURL + "friends/createrequest", {
+      userId: requestObj.userId,
+      friendId: requestObj.friendId,
+      status: "Request Pending"
+    }, httpOptions)
+  }
 }

@@ -14,11 +14,12 @@ export class FbUserInfoComponent implements OnInit {
   constructor(private _userService: UserService, private _storageService: StorageService) {}
 
   ngOnInit(): void {
+    let currentUser = JSON.parse(this._storageService.getSessionCurrentUser() || '{}')
     this.userPhoto();
     this._userService.getFriends().subscribe(data => {
       this.friendsList = data;
+      this.friendsList = this.friendsList.filter((user: { userId: any; }) => user.userId == currentUser._id);
     })
-    let currentUser = JSON.parse(this._storageService.getSessionCurrentUser() || '{}')
     this._userService.getUserPost(currentUser["_id"]).subscribe(data => this.posts = data)
     
   }
