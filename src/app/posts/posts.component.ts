@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { StorageService } from '../services/storage.service';
 import { UserService } from '../services/user.service';
 
@@ -15,7 +16,7 @@ export class PostsComponent implements OnInit {
   posts: any = [];
   success: boolean = false;
   successMessage: string = "";
-  constructor(private _userService: UserService, private _storageService: StorageService){}
+  constructor(private _userService: UserService, private _storageService: StorageService, private router: Router){}
 
   postForm = new FormGroup({
     post: new FormControl('', Validators.required)
@@ -25,8 +26,10 @@ export class PostsComponent implements OnInit {
     this.currentUser = JSON.parse(this._storageService.getSessionCurrentUser() || "{}")
     this._userService.getUserPost(this.currentUser._id).subscribe(data => {
       this.posts = data
-      console.log(this.posts)
     })
+    if(Object.keys(this.currentUser).length == 0){
+      this.router.navigate(['/login']);
+    }
   }
 
   public get f() { return this.postForm.controls}

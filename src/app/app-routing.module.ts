@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'network', component: NetworkComponent},
   {path: 'friends', component: FriendsComponent},
-  {path: '', component: LoginComponent, pathMatch: 'full'}
+  {path: '', component: PostsComponent, pathMatch: 'full'}
 ];
 
 @NgModule({
