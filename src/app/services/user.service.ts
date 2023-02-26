@@ -33,6 +33,10 @@ export class UserService {
     return this._http.get(APIROOTURL + "files/" + photoId, {responseType: 'blob' as "json"})
   }
 
+  getAllUsers(){
+    return this._http.get(APIURL)
+  }
+
   getFriends(){
     return this._http.get(APIROOTURL + "friends")
   }

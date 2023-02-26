@@ -11,7 +11,8 @@ import { PostsComponent } from './posts/posts.component';
 import { httpInterceptorProviders } from "./interceptors/index";
 import { SettingsComponent } from './settings/settings.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { FbUserInfoComponent } from './shared/fb-user-info/fb-user-info.component'
+import { FbUserInfoComponent } from './shared/fb-user-info/fb-user-info.component';
+import { NetworkComponent } from './network/network.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FbUserInfoComponent } from './shared/fb-user-info/fb-user-info.componen
     PostsComponent,
     SettingsComponent,
     ForgotPasswordComponent,
-    FbUserInfoComponent
+    FbUserInfoComponent,
+    NetworkComponent
   ],
   imports: [
     BrowserModule,
