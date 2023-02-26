@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
 
   public get authenticated(): boolean {
     this.currentUser = JSON.parse(this._storageService.getSessionCurrentUser() || "{}");
-    if(this.currentUser){
+    if(this.currentUser && Object.keys(this.currentUser).length > 0){
       return true
     }else{
       return false
