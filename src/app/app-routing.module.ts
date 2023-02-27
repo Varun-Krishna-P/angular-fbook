@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminUserComponent } from './admin-user/admin-user.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { FriendsComponent } from './friends/friends.component';
+import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { NetworkComponent } from './network/network.component';
 import { PostsComponent } from './posts/posts.component';
@@ -16,6 +18,7 @@ const routes: Routes = [
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'network', component: NetworkComponent},
   {path: 'friends', component: FriendsComponent},
+  {path: 'users', component: AdminUserComponent, canActivate: [AuthGuard]},
   {path: '', component: PostsComponent, pathMatch: 'full'}
 ];
 

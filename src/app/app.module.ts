@@ -13,7 +13,9 @@ import { SettingsComponent } from './settings/settings.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { FbUserInfoComponent } from './shared/fb-user-info/fb-user-info.component';
 import { NetworkComponent } from './network/network.component';
-import { FriendsComponent } from './friends/friends.component'
+import { FriendsComponent } from './friends/friends.component';
+import { AdminUserComponent } from './admin-user/admin-user.component'
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { FriendsComponent } from './friends/friends.component'
     ForgotPasswordComponent,
     FbUserInfoComponent,
     NetworkComponent,
-    FriendsComponent
+    FriendsComponent,
+    AdminUserComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { FriendsComponent } from './friends/friends.component'
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [httpInterceptorProviders],
+  providers: [httpInterceptorProviders, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
